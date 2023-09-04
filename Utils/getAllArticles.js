@@ -15,6 +15,9 @@ const getAllArticles = () => {
 }
 
 const getIndividualArticle = (article_id) => {
+    
+    console.log(article_id, "in get req")
+
     return axiosInstance.get(`/${article_id}`)
     .then(({data})=> {
         return data
