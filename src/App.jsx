@@ -12,7 +12,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/comments" element={<AllComments />} />
       <Route path="/topics" element={<AllTopics />} />
-      <Route path="/individual_article" element={<IndividualArticle />} />
+      <Route path="/:article_id" element={<IndividualArticle />} />
     </Routes>
     </>
   )

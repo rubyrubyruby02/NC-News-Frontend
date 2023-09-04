@@ -1,8 +1,10 @@
 import {Link} from 'react-router-dom'
+import IndividualArticle from './IndividualArticle'
 
 const ArticleCard = ({article}) => {
     
         return (
+          <>
             <div className="card">
                 <img className="card-img-top" src={article.article_img_url} alt={article.title}></img>
             <div className="card-body">
@@ -11,12 +13,13 @@ const ArticleCard = ({article}) => {
               <p className="card-text">Author: {article.author}</p>
               <p className="card-text">Comments: {article.comment_count}</p>
               <p className="card-text">Votes: {article.votes}</p>
-              <Link to="/individual_article">
-              <button className="btn btn-primary">View article in detail</button>
+              <Link to={`/${article.article_id}`}>
+                <button className="btn btn-primary"> View article in detail</button>
               </Link>
             </div>
           </div>
-           
+
+        </>
         )   
 }
 
