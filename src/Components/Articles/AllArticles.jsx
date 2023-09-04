@@ -19,7 +19,7 @@ const AllArticles = () => {
         <section>
             {articles.map((article)=> {
                 return (
-                    <ArticleCard key={article.id} article={article}/>)
+                    <ArticleCard key={article.article_id} article={article}/>)
             })}
         </section>
         </>

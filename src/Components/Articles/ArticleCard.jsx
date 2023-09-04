@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 const ArticleCard = ({article}) => {
     
         return (
@@ -9,7 +11,9 @@ const ArticleCard = ({article}) => {
               <p className="card-text">Author: {article.author}</p>
               <p className="card-text">Comments: {article.comment_count}</p>
               <p className="card-text">Votes: {article.votes}</p>
-              <a href="#" className="btn btn-primary">View Article in detail</a>
+              <Link to="/individual_article">
+              <button className="btn btn-primary">View article in detail</button>
+              </Link>
             </div>
           </div>
            
