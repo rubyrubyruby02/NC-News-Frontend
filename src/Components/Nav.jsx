@@ -1,16 +1,24 @@
+import { Link } from "react-router-dom";
+
 const Nav = () => {
     return (
         <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <ul  className="navbar-nav mr-auto">
             <li className="nav-item active">
-                <a className="nav-link" href="#">Home</a>
+                <Link to="/">
+                <p className="nav-link">Home</p>
+                </Link>  
             </li>
             <li className="nav-item active">
-                <a className="nav-link" href="#">Topics</a>
+                <Link to="/topics">
+                <p className="nav-link">Topics</p>
+                </Link>  
             </li>
             <li className="nav-item active">
-                <a className="nav-link" href="#">Comments</a>
+                <Link to="/comments">
+                <p className="nav-link">Comments</p>
+                </Link>  
             </li>
         </ul>  
         </nav>
