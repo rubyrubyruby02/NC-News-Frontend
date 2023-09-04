@@ -1,0 +1,7 @@
+.card{
+    display: flex;
+    flex-direction: row;
+}
+.card-img-top{
+    width: 20%;
+}
