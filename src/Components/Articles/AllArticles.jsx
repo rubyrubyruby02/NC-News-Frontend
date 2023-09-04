@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import getAllArticle from "../../../Utils.js/getAllArticles"
+import {getAllArticles} from "../../../Utils/getAllArticles.js"
 import ArticleCard from "./ArticleCard"
 
 const AllArticles = () => {
@@ -7,7 +7,7 @@ const AllArticles = () => {
     const [articles, setArticles] = useState([])
 
     useEffect(()=> {
-        getAllArticle()
+        getAllArticles()
         .then(({articles})=> {
             setArticles(articles)
         })
