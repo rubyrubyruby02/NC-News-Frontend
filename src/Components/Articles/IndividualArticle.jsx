@@ -5,20 +5,22 @@ import { getIndividualArticle } from "../../../Utils/apiRequests.js";
 import {Link} from 'react-router-dom'
 import VoteCounter from "../Votes/VoteCounter";
 
+
+
 const IndividualArticle = () => {
   const { article_id } = useParams();
-
   const [article, setArticle] = useState({});
+  const [votesTotal, setVotesTotal]= useState()
  
-
   useEffect(() => {
-    getIndividualArticle(article_id).then(({ result }) => {
+    getIndividualArticle(article_id)
+    .then(({ result }) => {
       setArticle(result);
+      setVotesTotal(result.votes)
     });
   }, [article_id]);
 
-  const [votesTotal, setVotesTotal]= useState(article.votes)
-
+  
   return (
     <>
       <Header />
@@ -51,7 +53,7 @@ const IndividualArticle = () => {
               </Link>
             </button>
 
-            <VoteCounter articleVotes={article} setVotesTotal={setVotesTotal}/>
+            <VoteCounter articleVotes={article} setVotesTotal={setVotesTotal} votesTotal={votesTotal}/>
 
             <button className="btn btn-info">{article.topic}</button>
           </div>

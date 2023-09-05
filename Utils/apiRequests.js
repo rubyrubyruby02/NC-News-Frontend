@@ -30,14 +30,8 @@ const getCommentsOnArticle = (article_id) => {
 
 
 const patchVotesforArticle = (increaseVotes) => {
-
-    console.log(increaseVotes, "in patch req")
-
-
     return axiosInstance.patch(`/${increaseVotes.article_id}`, increaseVotes)
     .then(({data}) => {
-
-        console.log(data, "data")
         return data
     })
 }
