@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "../Header";
+import Loading from "../ErrorAndLoading/Loading";
 import { useParams } from "react-router-dom";
 import { getIndividualArticle } from "../../../Utils/apiRequests.js";
 import {Link} from 'react-router-dom'
@@ -7,12 +8,18 @@ import {Link} from 'react-router-dom'
 const IndividualArticle = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
+  const [isLoading, setisLoading] = useState(false)
 
   useEffect(() => {
+    setisLoading(true)
+
     getIndividualArticle(article_id).then(({ result }) => {
       setArticle(result);
+      setisLoading(false)
     });
   }, [article_id]);
+
+  if(isLoading) return <Loading />
 
   return (
     <>
