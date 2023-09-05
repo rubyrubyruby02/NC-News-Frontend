@@ -16,7 +16,7 @@ const Nav = () => {
                 </Link>  
             </li>
             <li className="nav-item active">
-                <Link to="/comments">
+                <Link to={`/1/comments`}>
                 <p className="nav-link">Comments</p>
                 </Link>  
             </li>
