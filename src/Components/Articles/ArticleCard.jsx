@@ -27,8 +27,8 @@ const ArticleCard = ({article}) => {
                     {"   "}
                     {article.comment_count}
                     </Link>
-
                   </button>
+                  
                   <button className="btn btn-secondary">
                     {"  "}
                     <svg
@@ -42,6 +42,7 @@ const ArticleCard = ({article}) => {
                     </svg>{"  "}
                     {article.votes}
                   </button>
+
                   <button className="btn btn-info">{article.topic}</button>
                   <Link to={`${article.article_id}`}>
                     <button className="btn btn-primary">View details</button>
