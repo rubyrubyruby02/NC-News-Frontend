@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import {getAllArticles} from "../../../Utils/getAllArticles.js"
+import {getAllArticles} from "../../../Utils/apiRequests.js"
 import ArticleCard from "./ArticleCard"
 
 const AllArticles = () => {

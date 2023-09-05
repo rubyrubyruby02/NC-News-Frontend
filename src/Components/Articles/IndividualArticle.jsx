@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Header from "../Header";
 import { useParams } from "react-router-dom";
-import { getIndividualArticle } from "../../../Utils/getAllArticles.js";
+import { getIndividualArticle } from "../../../Utils/apiRequests.js";
+import {Link} from 'react-router-dom'
 
 const IndividualArticle = () => {
   const { article_id } = useParams();
@@ -28,7 +29,9 @@ const IndividualArticle = () => {
             <h4 className="card-text">{article.author}</h4>
             <p>{article.body}</p>
             <p>{article.created_at}</p>
+
             <button className="btn btn-dark">
+            <Link to={`/${article_id}/comments`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -40,6 +43,7 @@ const IndividualArticle = () => {
               </svg>
               {"   "}
               {article.comment_count}
+              </Link>
             </button>
 
             <button className="btn btn-secondary">

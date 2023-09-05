@@ -15,8 +15,6 @@ const getAllArticles = () => {
 }
 
 const getIndividualArticle = (article_id) => {
-    
-    console.log(article_id, "in get req")
 
     return axiosInstance.get(`/${article_id}`)
     .then(({data})=> {
@@ -24,7 +22,15 @@ const getIndividualArticle = (article_id) => {
     })
 }
 
-export {getAllArticles, getIndividualArticle}
+const getCommentsOnArticle = (article_id) => {
+    return axiosInstance.get(`/${article_id}/comments`)
+    .then(({data}) =>{
+        return data
+    })
+}
+
+
+export {getAllArticles, getIndividualArticle, getCommentsOnArticle}
 
 
 
