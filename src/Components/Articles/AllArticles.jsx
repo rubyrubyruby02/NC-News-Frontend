@@ -5,7 +5,6 @@ import ArticleCard from "./ArticleCard"
 const AllArticles = () => {
 
     const [articles, setArticles] = useState([])
-    
 
     useEffect(()=> {
         getAllArticles()
@@ -13,6 +12,7 @@ const AllArticles = () => {
             setArticles(articles)
         })
     }, [])
+
 
     return (
         <>

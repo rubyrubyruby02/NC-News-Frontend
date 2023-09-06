@@ -1,10 +1,9 @@
 import { patchVotesforArticle} from "../../../Utils/apiRequests.js";
+import { useState } from "react";
 
-const VoteCounter = ({articleVotes, setVotesTotal, votesTotal}) => {
+const UpVoteCounter = ({articleVotes, setVotesTotal, votesTotal}) => {
 
-    console.log(articleVotes)
-    console.log(setVotesTotal, "setVotesTotal")
-    console.log(votesTotal, "votesTotal")
+    const [isError, setIsError] = useState(null)
 
     const increaseVotes = {
         article_id: articleVotes.article_id,
@@ -21,12 +20,16 @@ const VoteCounter = ({articleVotes, setVotesTotal, votesTotal}) => {
         patchVotesforArticle(increaseVotes)
         .then(({updatedArticle})=> {
             })
+        .catch((error)=> {
+            setIsError("Sorry something went wrong")
+        })
         }
     
 
     return (
         <>
-        <button className="btn btn-secondary" onClick={patchVotes}>
+        {isError ? <p>{isError}</p> : null}
+        <button className="btn btn-success" onClick={patchVotes}>
               {"  "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -45,4 +48,4 @@ const VoteCounter = ({articleVotes, setVotesTotal, votesTotal}) => {
     )
 }
 
-export default VoteCounter
+export default UpVoteCounter

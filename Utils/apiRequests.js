@@ -34,6 +34,9 @@ const patchVotesforArticle = (increaseVotes) => {
     .then(({data}) => {
         return data
     })
+    .catch((error)=> {
+        return error
+    })
 }
 
 export {getAllArticles, getIndividualArticle, getCommentsOnArticle, patchVotesforArticle}
