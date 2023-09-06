@@ -12,6 +12,9 @@ const getAllArticles = () => {
     .then(({data})=> {
         return data
     })
+    .catch((error)=> {
+        return error
+    })
 }
 
 const getIndividualArticle = (article_id) => {
@@ -19,12 +22,18 @@ const getIndividualArticle = (article_id) => {
     .then(({data})=> {
         return data
     })
+    .catch((error)=> {
+        return error
+    })
 }
 
 const getCommentsOnArticle = (article_id) => {
     return axiosInstance.get(`/${article_id}/comments`)
     .then(({data}) =>{
         return data
+    })
+    .catch((error)=> {
+        return error
     })
 }
 
@@ -39,7 +48,17 @@ const patchVotesforArticle = (increaseVotes) => {
     })
 }
 
-export {getAllArticles, getIndividualArticle, getCommentsOnArticle, patchVotesforArticle}
+const patchDownVotesforArticle = (decreaseVotes) => {
+    return axiosInstance.patch(`/${decreaseVotes.article_id}`, decreaseVotes)
+    .then(({data}) => {
+        return data
+    })
+    .catch((error)=> {
+        return error
+    })
+}
+
+export {getAllArticles, getIndividualArticle, getCommentsOnArticle, patchVotesforArticle, patchDownVotesforArticle}
 
 
 

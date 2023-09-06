@@ -35,20 +35,23 @@ const ArticleCard = ({ article }) => {
           </span>
         </Link>
 
+        
+        <span className="btn btn-secondary">{votesTotal} votes</span>
         <UpVoteCounter
           articleVotes={article}
           setVotesTotal={setVotesTotal}
           votesTotal={votesTotal}
         />
-
         <DownVoteCounter articleVotes={article} setVotesTotal={setVotesTotal} votesTotal={votesTotal}/>
-
-
+       
         <button className="btn btn-info">{article.topic}</button>
+      
         <Link to={`${article.article_id}`}>
           <span className="btn btn-primary">View details</span>
         </Link>
+      
       </div>
+
     </div>
   );
 };

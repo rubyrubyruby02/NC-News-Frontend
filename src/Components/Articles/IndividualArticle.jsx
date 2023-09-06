@@ -53,6 +53,8 @@ const IndividualArticle = () => {
               </span>
               </Link>
 
+            <span className="btn btn-secondary">{votesTotal} votes</span>
+
             <UpVoteCounter articleVotes={article} setVotesTotal={setVotesTotal} votesTotal={votesTotal}/>
 
             <DownVoteCounter articleVotes={article} setVotesTotal={setVotesTotal} votesTotal={votesTotal}/>
