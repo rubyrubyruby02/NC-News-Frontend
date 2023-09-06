@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const CommentCard = ({comment}) => {
 
@@ -22,6 +22,11 @@ const CommentCard = ({comment}) => {
                     </svg>{"  "}
                     {comment.votes}
                   </button>
+
+                  <Link to={`/${comment.article_id}/comments/add_a_comment`}>
+                  <span className="btn btn-info">Add a comment</span>
+                  </Link>
+                  
         </div>
         </div>
         </>
