@@ -12,14 +12,28 @@ h1{
     margin: 0%;
 }
 
-h3{
-    padding-top:1em;
-    padding-bottom:1em;
+h3, h4{
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    margin: 0;
+    
 }
+
+#titleColouredBand{
+    background-color: #FE5F55;
+}
+
 
 a{
     text-decoration: none;
 }
+
+.topicButtons{
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+
 
 .card{
     display: flex;

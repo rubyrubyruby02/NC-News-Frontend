@@ -5,13 +5,14 @@ import ArticleCard from "./ArticleCard"
 const AllArticles = () => {
 
     const [articles, setArticles] = useState([])
+    const [topic, setTopic]= useState("")
 
     useEffect(()=> {
-        getAllArticles()
+        getAllArticles(topic)
         .then(({articles})=> {
             setArticles(articles)
         })
-    }, [])
+    }, [articles])
 
 
     return (

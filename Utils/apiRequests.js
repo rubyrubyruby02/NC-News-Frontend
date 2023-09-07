@@ -7,8 +7,8 @@ const axiosInstance = axios.create({
 })
     
 
-const getAllArticles = () => {
-    return axiosInstance.get()
+const getAllArticles = (topic) => {
+    return axiosInstance.get(`?topic=${topic}`)
     .then(({data})=> {
         return data
     })
