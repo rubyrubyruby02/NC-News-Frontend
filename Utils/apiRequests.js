@@ -58,7 +58,25 @@ const patchDownVotesforArticle = (decreaseVotes) => {
     })
 }
 
-export {getAllArticles, getIndividualArticle, getCommentsOnArticle, patchVotesforArticle, patchDownVotesforArticle}
+
+// /api/articles/:article_id/comments
+const postComment = (formValues) => {
+
+    const postData = {
+        username: formValues.username,
+        body: formValues.body
+    }
+
+    return axiosInstance.post(`/${formValues.article_id}/comments`, postData)
+    .then((response)=> {
+        return response
+    })
+    .catch((error)=> {
+        return error
+    })
+}
+
+export {getAllArticles, getIndividualArticle, getCommentsOnArticle, patchVotesforArticle, patchDownVotesforArticle, postComment}
 
 
 

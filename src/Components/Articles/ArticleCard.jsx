@@ -4,7 +4,7 @@ import DownVoteCounter from "../Votes/DownVoteCounter";
 import { useState } from "react";
 
 const ArticleCard = ({ article }) => {
-  console.log(article);
+ 
   const [votesTotal, setVotesTotal] = useState(article.votes);
 
   return (
@@ -44,7 +44,7 @@ const ArticleCard = ({ article }) => {
         />
         <DownVoteCounter articleVotes={article} setVotesTotal={setVotesTotal} votesTotal={votesTotal}/>
        
-        <button className="btn btn-info">{article.topic}</button>
+        <span className="btn btn-info">{article.topic}</span>
       
         <Link to={`${article.article_id}`}>
           <span className="btn btn-primary">View details</span>
