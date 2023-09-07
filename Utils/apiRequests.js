@@ -7,10 +7,14 @@ const axiosInstance = axios.create({
 })
     
 
-const getAllArticles = (topic) => {
-    return axiosInstance.get(`?topic=${topic}`)
+const getAllArticles = (searchParams) => {
+
+    //add conditional logic to check if topic (if undefined, take all)
+    //then eventually logic to check if sort_by
+
+    return axiosInstance.get(`?${searchParams}`)
     .then(({data})=> {
-        console.log(data, "topic")
+        console.log(data)
         return data
     })
     .catch((error)=> {
@@ -18,13 +22,6 @@ const getAllArticles = (topic) => {
     })
 }
 
-const getArticlesWithQueries = (searchParams) => {
-    return axiosInstance.get(`?${searchParams}`)
-    .then(({data})=> {
-        console.log(data, "dataSearchParams")
-        return data
-    })
-}
 
 const getIndividualArticle = (article_id) => {
     return axiosInstance.get(`/${article_id}`)
@@ -84,7 +81,7 @@ const postComment = (formValues) => {
     })
 }
 
-export {getAllArticles, getArticlesWithQueries, getIndividualArticle, getCommentsOnArticle, patchVotesforArticle, patchDownVotesforArticle, postComment}
+export {getAllArticles, getIndividualArticle, getCommentsOnArticle, patchVotesforArticle, patchDownVotesforArticle, postComment}
 
 
 

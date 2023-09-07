@@ -1,47 +1,39 @@
 import { useEffect, useState} from "react"
-import {getAllArticles, getArticlesWithQueries} from "../../../Utils/apiRequests.js"
+import {getAllArticles} from "../../../Utils/apiRequests.js"
 import ArticleCard from "./ArticleCard"
 import { useSearchParams } from 'react-router-dom';
+import Header from "../Header.jsx";
 
 
 const AllArticles = () => {
 
     const [articles, setArticles] = useState([])
-    const [topic, setTopic]= useState("")
 
     const [searchParams, setSearchParams] = useSearchParams();
-
-    const sortByVotes = searchParams.get("sort_by"); 
-
+    const topic = searchParams.get("topic"); 
 
     const setSortOrder = (direction) => {
         const newParams = new URLSearchParams(searchParams);
-        newParams.set('sort_by', direction);
+        newParams.set('topic', direction);
         setSearchParams(newParams);
       };
 
 
     useEffect(()=> {
-        getArticlesWithQueries(searchParams)
+        getAllArticles(searchParams)
         .then(({articles})=> {
             setArticles(articles)
         })
-
-      }, [sortByVotes])
-
-    useEffect(()=> {
-        getAllArticles(topic)
-        .then(({articles})=> {
-            setArticles(articles)
-        })
-    }, [])
+    }, [topic])
 
 
     return (
         <>
-        <section id="titleColouredBand">
+        <Header />
+
+        {/* <section id="titleColouredBand">
             <button className="btn btn-secondary" onClick={()=> {setSearchParams({sort_by : 'votes'})}}>Sort by Votes</button>
-        </section>
+        </section> */}
 
         <section>
             {articles.map((article)=> {
