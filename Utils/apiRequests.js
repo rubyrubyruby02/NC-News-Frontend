@@ -9,12 +9,16 @@ const axiosInstance = axios.create({
 
 const getAllArticles = (searchParams) => {
 
-    //add conditional logic to check if topic (if undefined, take all)
-    //then eventually logic to check if sort_by
+//   const params = new URLSearchParams();
+//   if (searchParams.get("topic")) {
+//     params.append("topic", searchParams.get("topic"));
+//   }
+//   if (searchParams.get("sort_by")) {
+//     params.append("sort_by", searchParams.get("sort_by"));
+//   }
 
     return axiosInstance.get(`?${searchParams}`)
     .then(({data})=> {
-        console.log(data)
         return data
     })
     .catch((error)=> {

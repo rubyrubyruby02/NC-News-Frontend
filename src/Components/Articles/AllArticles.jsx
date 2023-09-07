@@ -10,7 +10,9 @@ const AllArticles = () => {
     const [articles, setArticles] = useState([])
 
     const [searchParams, setSearchParams] = useSearchParams();
+
     const topic = searchParams.get("topic"); 
+    const sortby = searchParams.get("sort_by")
 
     const setSortOrder = (direction) => {
         const newParams = new URLSearchParams(searchParams);
@@ -24,16 +26,16 @@ const AllArticles = () => {
         .then(({articles})=> {
             setArticles(articles)
         })
-    }, [topic])
+    }, [topic, sortby])
 
 
     return (
         <>
         <Header />
 
-        {/* <section id="titleColouredBand">
-            <button className="btn btn-secondary" onClick={()=> {setSearchParams({sort_by : 'votes'})}}>Sort by Votes</button>
-        </section> */}
+        <section id="titleColouredBand">
+            <button className="btn btn-secondary" onClick={()=> {setSortOrder('votes')}}>Sort by Votes</button>
+        </section>
 
         <section>
             {articles.map((article)=> {
