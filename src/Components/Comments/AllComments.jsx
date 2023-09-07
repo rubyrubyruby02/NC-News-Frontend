@@ -39,9 +39,9 @@ const AllComments = () => {
         <section> 
             {noComments ? (<h3>No comments yet</h3>) : comments.map((comment)=> {
                 return (
-                <>
-                <CommentCard key={comment.comment_id} comment={comment} />
-                </>
+                <div key={comment.comment_id}>
+                <CommentCard comment={comment} />
+                </div>
                 )              
             })}
         </section>
