@@ -1,29 +1,58 @@
 import { Link } from "react-router-dom";
 
 const Nav = () => {
-    return (
-        <>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <ul  className="navbar-nav mr-auto">
-            <li className="nav-item active">
-                <Link to="/">
-                <p className="nav-link">Home</p>
-                </Link>  
-            </li>
-            <li className="nav-item active">
-                <Link to="/topics">
-                <p className="nav-link">Topics</p>
-                </Link>  
-            </li>
-            <li className="nav-item active">
-                <Link to={`/1/comments`}>
-                <p className="nav-link">Comments</p>
-                </Link>  
-            </li>
-        </ul>  
-        </nav>
-        </>
-    )
-}
+  return (
+    <>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+            <Link to="/">
+              <p className="nav-link">Home</p>
+            </Link>
+          </li>
 
-export default Nav
+          <li className="nav-item dropdown">
+              <p
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+                Topics
+              </p>
+
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+            <Link to="/articles/cooking">
+              <span className="dropdown-item">
+                Cooking
+              </span>
+            </Link>
+            
+            <Link to="/articles/coding">
+              <span className="dropdown-item">
+                Coding
+              </span>
+            </Link>
+           
+            <Link to="/articles/football">
+              <span className="dropdown-item">
+                Football
+              </span>
+            </Link>
+
+              <Link to="/articles">
+                <span className="dropdown-item">
+                  All Topics
+                </span>
+            </Link>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </>
+  );
+};
+
+export default Nav;

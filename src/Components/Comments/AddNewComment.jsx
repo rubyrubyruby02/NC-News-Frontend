@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { postComment } from "../../../Utils/apiRequests";
 import { Link } from "react-router-dom";
+import IndividualArticle from "../Articles/IndividualArticle";
 
 const AddNewComment = () => {
 
@@ -85,8 +86,8 @@ const AddNewComment = () => {
 
       <h3>{handleUserfeedback()}</h3>
 
-      <Link to={`/${article_id}/comments`}>
-          <span className="btn btn-info">Back to comments</span>
+      <Link to={`/${article_id}`}>
+          <span className="btn btn-info">Back to article</span>
       </Link>
     </>
   );

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../Header";
 import Loading from "../ErrorAndLoading/Loading";
+import AllComments from "../Comments/AllComments";
 import { useParams } from "react-router-dom";
 import { getIndividualArticle } from "../../../Utils/apiRequests.js";
 import {Link} from 'react-router-dom'
@@ -41,6 +42,7 @@ const IndividualArticle = () => {
   return (
     <>
       <Header />
+      <h4 id="titleColouredBand">Article Number: {article_id}</h4>
       <article>
         <div className="card">
           <img
@@ -76,10 +78,14 @@ const IndividualArticle = () => {
 
             <DownVoteCounter articleVotes={article} setVotesTotal={setVotesTotal} votesTotal={votesTotal}/>
 
-
+            <Link to={`/articles/${article.topic}`}>
             <button className="btn btn-info">{article.topic}</button>
+            </Link>
+
           </div>
         </div>
+
+        <AllComments />
       </article>
     </>
   );

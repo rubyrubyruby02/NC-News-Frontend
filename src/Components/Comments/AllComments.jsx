@@ -34,8 +34,6 @@ const AllComments = () => {
 
     return (
         <>
-        <Header />
-        <h3>Article Number: {article_id}</h3>
         <section> 
             {noComments ? (<h3>No comments yet</h3>) : comments.map((comment)=> {
                 return (

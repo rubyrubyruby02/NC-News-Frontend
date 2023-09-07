@@ -6,8 +6,8 @@ const CommentCard = ({comment}) => {
         <>
         <div className="card">
         <div className="card-body">
-                  <h3 className="card-title">{comment.body}</h3>
-                  <h4 className="card-text">{comment.author}</h4>
+                  <h5 className="card-title">{comment.body}</h5>
+                  <h6 className="card-text">{comment.author}</h6>
                   <p>{comment.created_at}</p>
                   <button className="btn btn-secondary">
                     {"  "}
@@ -22,7 +22,6 @@ const CommentCard = ({comment}) => {
                     </svg>{"  "}
                     {comment.votes}
                   </button>
-
                   <Link to={`/${comment.article_id}/comments/add_a_comment`}>
                   <span className="btn btn-info">Add a comment</span>
                   </Link>
