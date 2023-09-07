@@ -1,8 +1,7 @@
 import Header from "../Header"
-import ArticleCard from "../Articles/ArticleCard";
 import { getAllArticles } from "../../../Utils/apiRequests";
 import { useState, useEffect } from "react"
-import { useSearchParams } from 'react-router-dom';
+import ArticleCard from "../Articles/ArticleCard";
 
 
 const Cooking = () => {

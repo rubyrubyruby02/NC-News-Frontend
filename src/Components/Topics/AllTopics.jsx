@@ -14,7 +14,7 @@ const AllTopics = () => {
         .then(({articles}) => {
             setArticles(articles)
         })
-    }, [articles])
+    }, [])
 
     const changeCategory = (selectedTopic) => {
         setTopic(selectedTopic)

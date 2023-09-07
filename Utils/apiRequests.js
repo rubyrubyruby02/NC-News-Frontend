@@ -10,10 +10,19 @@ const axiosInstance = axios.create({
 const getAllArticles = (topic) => {
     return axiosInstance.get(`?topic=${topic}`)
     .then(({data})=> {
+        console.log(data, "topic")
         return data
     })
     .catch((error)=> {
         return error
+    })
+}
+
+const getArticlesWithQueries = (searchParams) => {
+    return axiosInstance.get(`?${searchParams}`)
+    .then(({data})=> {
+        console.log(data, "dataSearchParams")
+        return data
     })
 }
 
@@ -59,7 +68,6 @@ const patchDownVotesforArticle = (decreaseVotes) => {
 }
 
 
-// /api/articles/:article_id/comments
 const postComment = (formValues) => {
 
     const postData = {
@@ -76,7 +84,7 @@ const postComment = (formValues) => {
     })
 }
 
-export {getAllArticles, getIndividualArticle, getCommentsOnArticle, patchVotesforArticle, patchDownVotesforArticle, postComment}
+export {getAllArticles, getArticlesWithQueries, getIndividualArticle, getCommentsOnArticle, patchVotesforArticle, patchDownVotesforArticle, postComment}
 
 
 
