@@ -56,7 +56,7 @@ const IndividualArticle = () => {
             <p>{article.body}</p>
             <p>{article.created_at}</p>
 
-            <Link to={`/${article_id}/comments`}>
+            <Link to={`/${article_id}/comments/add_a_comment`}>
               <span className="btn btn-dark">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ const IndividualArticle = () => {
 
             <DownVoteCounter articleVotes={article} setVotesTotal={setVotesTotal} votesTotal={votesTotal}/>
 
-            <Link to={`/articles/${article.topic}`}>
+            <Link to={`/articles?topic=${article.topic}`}>
             <button className="btn btn-info">{article.topic}</button>
             </Link>
 

@@ -9,11 +9,12 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/articles" element={<AllArticles />} />
+      <Route path="/" element={<AllArticles />} />
       <Route path="/:article_id/comments" element={<AllComments />} />
       <Route path="/articles/:article_id" element={<IndividualArticle />} />
-      <Route path="/articles/:article_id/comments/add_a_comment" element={<AddNewComment />} />
+      <Route path="/:article_id/comments/add_a_comment" element={<AddNewComment />} />
       <Route path="/articles" element={<AllArticles />} />
+      <Route path="/:article_id" element={<IndividualArticle />} />
     </Routes>
     </>
   )
