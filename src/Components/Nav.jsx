@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
 
 const Nav = () => {
   return (
@@ -6,7 +6,7 @@ const Nav = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <Link to="/">
+            <Link to="/articles">
               <p className="nav-link">Home</p>
             </Link>
           </li>
@@ -24,19 +24,19 @@ const Nav = () => {
               </p>
 
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <Link to="/articles/cooking">
+            <Link to="/articles?topic=cooking">
               <span className="dropdown-item">
                 Cooking
               </span>
             </Link>
             
-            <Link to="/articles/coding">
+            <Link to="/articles?topic=coding">
               <span className="dropdown-item">
                 Coding
               </span>
             </Link>
            
-            <Link to="/articles/football">
+            <Link to="/articles?topic=football">
               <span className="dropdown-item">
                 Football
               </span>
