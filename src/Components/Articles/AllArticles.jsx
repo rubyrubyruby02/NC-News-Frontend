@@ -9,16 +9,20 @@ const AllArticles = () => {
 
     const [articles, setArticles] = useState([])
 
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams("");
 
     const topic = searchParams.get("topic"); 
     const sortby = searchParams.get("sort_by")
+    const orderby = searchParams.get("order")
 
     const setSortOrder = (direction) => {
         const newParams = new URLSearchParams(searchParams);
         
-        if(direction === 'votes'){
+        if(direction === 'votes' || direction === 'created_at' || direction === 'author'){
             newParams.set('sort_by', direction);
+        }
+        else if(direction === 'asc' || direction === 'desc'){
+            newParams.set('order', direction)
         }
         else{
             newParams.set('topic', direction);
@@ -32,7 +36,7 @@ const AllArticles = () => {
         .then(({articles})=> {
             setArticles(articles)
         })
-    }, [topic, sortby])
+    }, [topic, sortby, orderby])
 
 
     return (
@@ -40,7 +44,17 @@ const AllArticles = () => {
         <Header />
 
         <section id="titleColouredBand">
-            <button className="btn btn-secondary" onClick={()=> {setSortOrder('votes')}}>Sort by Votes</button>
+            <button className="btn btn-outline-light" onClick={()=> {setSortOrder('votes')}}>Sort by Votes</button>
+
+            <button className="btn btn-outline-light" onClick={()=> {setSortOrder('created_at')}}>Date</button>
+
+            <button className="btn btn-outline-light" onClick={()=> {setSortOrder('author')}}>Author</button>
+
+            <button className="btn btn-outline-light" onClick={()=> {setSortOrder('asc')}}>Ascending</button>
+
+            <button className="btn btn-outline-light" onClick={()=> {setSortOrder('desc')}}>Descending</button>
+
+            <button className="btn btn-outline-light" onClick={()=> {setSearchParams()}}>Clear filters</button>
         </section>
 
         <section>
