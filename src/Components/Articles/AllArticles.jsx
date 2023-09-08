@@ -16,7 +16,13 @@ const AllArticles = () => {
 
     const setSortOrder = (direction) => {
         const newParams = new URLSearchParams(searchParams);
-        newParams.set('topic', direction);
+        
+        if(direction === 'votes'){
+            newParams.set('sort_by', direction);
+        }
+        else{
+            newParams.set('topic', direction);
+        }
         setSearchParams(newParams);
       };
 
