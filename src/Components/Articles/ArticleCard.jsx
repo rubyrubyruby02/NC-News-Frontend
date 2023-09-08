@@ -18,8 +18,8 @@ const ArticleCard = ({ article }) => {
         <h3 className="card-title">{article.title}</h3>
         <h4 className="card-text">{article.author}</h4>
 
-        <Link to={`/articles/${article.article_id}`}>
-          <span className="btn btn-dark">
+        <Link to={`/articles/${article.article_id}`} className={"btn btn-dark"}>
+          <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -33,7 +33,7 @@ const ArticleCard = ({ article }) => {
             {"   "}
             {article.comment_count}
           </span>
-        </Link>
+          </Link>
 
         
         <span className="btn btn-secondary">{votesTotal} votes</span>
@@ -42,15 +42,16 @@ const ArticleCard = ({ article }) => {
           setVotesTotal={setVotesTotal}
           votesTotal={votesTotal}
         />
+
         <DownVoteCounter articleVotes={article} setVotesTotal={setVotesTotal} votesTotal={votesTotal}/>
        
     
-        <Link to={`/articles?topic=${article.topic}`}>
-        <span className="btn btn-info">{article.topic}</span>
+        <Link to={`/articles?topic=${article.topic}`} className="btn btn-info">
+        <span>{article.topic}</span>
         </Link>
       
-        <Link to={`/articles/${article.article_id}`}>
-          <span className="btn btn-primary">View details</span>
+        <Link to={`/articles/${article.article_id}`} className="btn btn-primary">
+          <span>View details</span>
         </Link>
       
       </div>

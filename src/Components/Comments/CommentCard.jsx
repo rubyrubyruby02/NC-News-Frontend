@@ -22,8 +22,8 @@ const CommentCard = ({comment}) => {
                     </svg>{"  "}
                     {comment.votes}
                   </button>
-                  <Link to={`/${comment.article_id}/comments/add_a_comment`}>
-                  <span className="btn btn-info">Add a comment</span>
+                  <Link to={`/${comment.article_id}/comments/add_a_comment`} className="btn btn-info">
+                  <span>Add a comment</span>
                   </Link>
                   
         </div>
