@@ -33,8 +33,6 @@ a{
     padding-bottom: 1em;
 }
 
-
-
 .card{
     display: flex;
     flex-direction: row;
@@ -43,4 +41,27 @@ a{
     width: 20%;
 }
 
+@media screen and (max-width: 600px) {
+    .card{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: no-wrap;
+        width: 100%;
+
+    }
+    .card-img-top {
+        width: 100%; 
+    }
+    .card-body{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+
+    }
+    .card-title{
+        flex: 1;
+    }
+  }
 
