@@ -19,6 +19,8 @@ h3, h4{
     
 }
 
+
+
 #titleColouredBand{
     background-color: #FE5F55;
 }
@@ -26,6 +28,11 @@ h3, h4{
 
 a{
     text-decoration: none;
+}
+
+p.nav-link{
+    color: white;
+    font-size: 1.25rem;
 }
 
 .topicButtons{
@@ -41,7 +48,25 @@ a{
     width: 20%;
 }
 
+
+
 @media screen and (max-width: 600px) {
+
+    h1{
+        text-align: center;
+    }
+    nav{
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar-toggler{
+        color: white;
+    }
+    p.nav-link{
+        color: white;
+        font-size: 1rem;
+    }
+
     .card{
         display: flex;
         flex-direction: column;
@@ -57,11 +82,10 @@ a{
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        width: 100%;
-
     }
     .card-title{
         flex: 1;
+        align-items: center;
     }
   }
 

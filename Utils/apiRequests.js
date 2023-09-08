@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const axiosInstance = axios.create({
-    baseURL: 'https://rubys-northcoders-news.onrender.com/api/articles', 
+    baseURL: 'https://rubys-northcoders-news.onrender.com/api', 
     timeout: 1000, 
     headers: {}
 })
@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 
 const getAllArticles = (searchParams) => {
 
-    return axiosInstance.get(`?${searchParams}`)
+    return axiosInstance.get(`/articles?${searchParams}`)
     .then(({data})=> {
         return data
     })
@@ -20,7 +20,7 @@ const getAllArticles = (searchParams) => {
 
 
 const getIndividualArticle = (article_id) => {
-    return axiosInstance.get(`/${article_id}`)
+    return axiosInstance.get(`/articles/${article_id}`)
     .then(({data})=> {
         return data
     })
@@ -30,7 +30,7 @@ const getIndividualArticle = (article_id) => {
 }
 
 const getCommentsOnArticle = (article_id) => {
-    return axiosInstance.get(`/${article_id}/comments`)
+    return axiosInstance.get(`/articles/${article_id}/comments`)
     .then(({data}) =>{
         return data
     })
@@ -41,7 +41,7 @@ const getCommentsOnArticle = (article_id) => {
 
 
 const patchVotesforArticle = (increaseVotes) => {
-    return axiosInstance.patch(`/${increaseVotes.article_id}`, increaseVotes)
+    return axiosInstance.patch(`/articles/${increaseVotes.article_id}`, increaseVotes)
     .then(({data}) => {
         return data
     })
@@ -51,7 +51,7 @@ const patchVotesforArticle = (increaseVotes) => {
 }
 
 const patchDownVotesforArticle = (decreaseVotes) => {
-    return axiosInstance.patch(`/${decreaseVotes.article_id}`, decreaseVotes)
+    return axiosInstance.patch(`/articles/${decreaseVotes.article_id}`, decreaseVotes)
     .then(({data}) => {
         return data
     })
@@ -68,7 +68,7 @@ const postComment = (formValues) => {
         body: formValues.body
     }
 
-    return axiosInstance.post(`/${formValues.article_id}/comments`, postData)
+    return axiosInstance.post(`/articles/${formValues.article_id}/comments`, postData)
     .then((response)=> {
         return response
     })
@@ -77,7 +77,16 @@ const postComment = (formValues) => {
     })
 }
 
-export {getAllArticles, getIndividualArticle, getCommentsOnArticle, patchVotesforArticle, patchDownVotesforArticle, postComment}
+const deleteComment = (comment_id) => {
+    
+    return axiosInstance.delete(`/comments/${comment_id}`)
+    .then((response) => {
+        console.log(response)
+        return response
+    })
+}
+
+export {getAllArticles, getIndividualArticle, getCommentsOnArticle, patchVotesforArticle, patchDownVotesforArticle, postComment, deleteComment}
 
 
 

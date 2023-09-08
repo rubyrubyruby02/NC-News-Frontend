@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import { deleteComment } from "../../../Utils/apiRequests";
 
 const CommentCard = ({comment}) => {
+
+  const deleteUsersComment = () => {
+    deleteComment(comment.comment_id)
+    .then((response)=> {
+      console.log(response)
+    })
+  }
 
     return (
         <>
@@ -22,10 +30,11 @@ const CommentCard = ({comment}) => {
                     </svg>{"  "}
                     {comment.votes}
                   </button>
-                  <Link to={`/${comment.article_id}/comments/add_a_comment`} className="btn btn-info">
-                  <span>Add a comment</span>
-                  </Link>
-                  
+
+                  <button onClick={deleteUsersComment} className="btn btn-danger">
+                    Delete
+                  </button>
+
         </div>
         </div>
         </>

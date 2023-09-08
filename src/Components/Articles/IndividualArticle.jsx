@@ -80,9 +80,8 @@ const IndividualArticle = () => {
             <DownVoteCounter articleVotes={article} setVotesTotal={setVotesTotal} votesTotal={votesTotal}/>
 
             <Link to={`/articles?topic=${article.topic}`} className="btn btn-info">
-            <button className="btn btn-info">{article.topic}</button>
+            <span>{article.topic}</span>
             </Link>
-
           </div>
         </div>
 

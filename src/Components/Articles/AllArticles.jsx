@@ -9,7 +9,7 @@ const AllArticles = () => {
 
     const [articles, setArticles] = useState([])
 
-    const [searchParams, setSearchParams] = useSearchParams("");
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const topic = searchParams.get("topic"); 
     const sortby = searchParams.get("sort_by")
@@ -45,15 +45,10 @@ const AllArticles = () => {
 
         <section id="titleColouredBand">
             <button className="btn btn-outline-light" onClick={()=> {setSortOrder('votes')}}>Sort by Votes</button>
-
             <button className="btn btn-outline-light" onClick={()=> {setSortOrder('created_at')}}>Date</button>
-
             <button className="btn btn-outline-light" onClick={()=> {setSortOrder('author')}}>Author</button>
-
             <button className="btn btn-outline-light" onClick={()=> {setSortOrder('asc')}}>Ascending</button>
-
             <button className="btn btn-outline-light" onClick={()=> {setSortOrder('desc')}}>Descending</button>
-
             <button className="btn btn-outline-light" onClick={()=> {setSearchParams()}}>Clear filters</button>
         </section>
 

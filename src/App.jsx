@@ -3,6 +3,7 @@ import AllComments from './Components/Comments/AllComments'
 import IndividualArticle from './Components/Articles/IndividualArticle'
 import AddNewComment from './Components/Comments/AddNewComment'
 import AllArticles from './Components/Articles/AllArticles'
+import UserLogin from './Components/UserLogin'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Route path="/:article_id/comments/add_a_comment" element={<AddNewComment />} />
       <Route path="/articles" element={<AllArticles />} />
       <Route path="/:article_id" element={<IndividualArticle />} />
+      <Route path="/user" element={<UserLogin />} />
     </Routes>
     </>
   )
