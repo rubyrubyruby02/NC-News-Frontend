@@ -4,7 +4,10 @@ Please find my hosted version [here](https://northcoders-news-by-ruby.netlify.ap
 
 ## Project Summary
 This is a front-end project using the React. I have created the app from scratch, added the components and used hooks such as useState, useEffect and useSearchParams.
-Inside the Wireframe folder are my planning sketches. This was built as part of my time on the Northcoder's software development bootcamp. 
+Inside the Wireframe folder are my planning sketches using a mobile-first approach. This was built as part of my time on the Northcoder's software development bootcamp. 
+
+### What does the app do?
+The app is a news website, with articles on different topics. Users can view articles on particular topics, sort articles and interact them by up or down voting or adding a comment.
 
 ### Backend & Data
 The data is provided by my API developed during my Back-end project which can be found [here](https://rubys-northcoders-news.onrender.com/api)
